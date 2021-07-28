@@ -9,18 +9,18 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Checkout private repo
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: "0"
-        path: ${{ inputs.repo_name }}
-        repository: kmiermans/${{ inputs.repo_name }}
-        token: ${{ inputs.secret }}
+    # - name: Checkout private repo
+    #   uses: actions/checkout@v2
+    #   with:
+    #     fetch-depth: "0"
+    #     path: ${{ inputs.repo_name }}
+    #     repository: kmiermans/${{ inputs.repo_name }}
+    #     token: ${{ inputs.secret }}
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
+    # - name: Set up Python ${{ matrix.python-version }}
+    #   uses: actions/setup-python@v2
+    #   with:
+    #     python-version: ${{ matrix.python-version }}
 
     - name: Install dependencies
       run: |
