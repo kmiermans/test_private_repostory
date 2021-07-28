@@ -9,19 +9,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    # - name: Checkout private repo
-    #   uses: actions/checkout@v2
-    #   with:
-    #     fetch-depth: "0"
-    #     path: ${{ inputs.repo_name }}
-    #     repository: kmiermans/${{ inputs.repo_name }}
-    #     token: ${{ inputs.secret }}
-
-    # - name: Set up Python ${{ matrix.python-version }}
-    #   uses: actions/setup-python@v2
-    #   with:
-    #     python-version: ${{ matrix.python-version }}
-
     - name: Install dependencies
       run: |
         echo "dirs: "
@@ -35,26 +22,3 @@ runs:
       run: |
         pytest ${{ inputs.repo_name }}
       shell: bash
-
-# name: 'Hello World'
-# description: 'Greet someone'
-# inputs:
-#   who-to-greet:  # id of input
-#     description: 'Who to greet'
-#     required: true
-#     default: 'World'
-# outputs:
-#   random-number:
-#     description: "Random number"
-#     value: ${{ steps.random-number-generator.outputs.random-id }}
-# runs:
-#   using: "composite"
-#   steps:
-#     - run: echo Hello ${{ inputs.who-to-greet }}.
-#       shell: bash
-#     - id: random-number-generator
-#       run: echo "::set-output name=random-id::$(echo $RANDOM)"
-#       shell: bash
-#     - run: ${{ github.action_path }}/run.sh
-#       shell: bash
-
