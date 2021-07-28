@@ -11,9 +11,6 @@ runs:
   steps:
     - name: Install dependencies
       run: |
-        echo "dirs: "
-        echo .* *
-
         python -m pip install --upgrade pip
         pip install pytest
       shell: bash
