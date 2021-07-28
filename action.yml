@@ -3,6 +3,9 @@ inputs:
   repo_name:
     description: 'Name of GitHub repo inside the kmiermans user'
     required: true
+  secret:
+    description: "Token to the repository being cloned + tested"
+    required: true
 runs:
   using: "composite"
   steps:
@@ -14,7 +17,7 @@ runs:
         fetch-depth: "0"
         path: ${{ inputs.repo_name }}
         repository: kmiermans/${{ inputs.repo_name }}
-        token: ${{ secrets.ACCESS_TOKEN }}
+        token: ${{ inputs.secret }}
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
